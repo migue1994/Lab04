@@ -127,11 +127,8 @@ public class GameScoreTest {
 	@Test
 	public void puntajeMaximoEsCapacidadMaximaDeEnteroBonus() throws ScoreException {
 		try {
-<<<<<<< HEAD
 			totalScore=bonusScore.calculateScore(33000,0);
-=======
 			totalScore=bonusScore.calculateScore(70000,0);
->>>>>>> inyección de dependencias
 			Assert.assertEquals(32767,totalScore);
 		}
 		catch(ScoreException e) {
