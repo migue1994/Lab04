@@ -31,12 +31,15 @@ public class GameModel {
     private Scanner scan;
     private String randomWord;
     private char[] randomWordCharArray;
+	
+    private GameScore game;
     
     
    
-    public GameModel(HangmanDictionary dictionary){
+    public GameModel(HangmanDictionary dictionary, GameScore game){
         //this.dictionary = new EnglishDictionaryDataSource();
         this.dictionary=dictionary;
+        this.game=game;
         randomWord = selectRandomWord();
         randomWordCharArray = randomWord.toCharArray();
         incorrectCount = 0;

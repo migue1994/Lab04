@@ -14,7 +14,6 @@ package hangman.setup.guice;
 import hangman.model.French;
 import hangman.model.Language;
 import hangman.model.*;
-import hangman.model.French;
 import hangman.model.dictionary.HangmanDictionary;
 import hangman.model.dictionary.FrenchDictionaryDataSource;
 import hangman.view.HangmanNoviolentoPanel;
