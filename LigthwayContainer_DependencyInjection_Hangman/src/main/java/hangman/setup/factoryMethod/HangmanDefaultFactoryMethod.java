@@ -24,8 +24,8 @@ public class HangmanDefaultFactoryMethod extends HangmanFactoryMethod {
         return new HangmanStickmanPanel();
     }
     
-    /*public GameScore createGame() {
+    public GameScore createGame() {
         return new OriginalScore();
-    }*/
+    }
 
 }
