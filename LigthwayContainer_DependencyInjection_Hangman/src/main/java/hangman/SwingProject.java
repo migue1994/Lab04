@@ -27,11 +27,11 @@
 package hangman;
 
 
-import com.google.inject.Guice;
+//import com.google.inject.Guice;
 import com.google.inject.Injector;
 
 import hangman.setup.factoryMethod.HangmanDefaultFactoryMethod;
-import hangman.setup.guice.HangmanFactoryServices;
+//import hangman.setup.guice.HangmanFactoryServices;
 
 public class SwingProject {
 
@@ -48,20 +48,16 @@ public class SwingProject {
         return new GUI(new HangmanDefaultFactoryMethod());
     }
 
-    public static GUI createGUIUsingGuice() {
+    /*public static GUI createGUIUsingGuice() {
         Injector injector = Guice.createInjector(new HangmanFactoryServices());
         return injector.getInstance(GUI.class);
-    }
+    }*/
 
     //method: main
     //purpose: the entry-point to our application
     public static void main(String[] args) {
-<<<<<<< HEAD
         createGUIUsingFactoryMethod().play();
-=======
-       //createGUIUsingFactoryMethod().play();
-        createGUIUsingGuice().play();
->>>>>>> inyección de dependencias
+        //createGUIUsingGuice().play();
     }
 
 }

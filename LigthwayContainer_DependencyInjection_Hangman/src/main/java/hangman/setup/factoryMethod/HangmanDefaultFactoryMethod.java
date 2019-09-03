@@ -1,9 +1,6 @@
 package hangman.setup.factoryMethod;
 
-<<<<<<< HEAD
-=======
 import hangman.model.*;
->>>>>>> inyección de dependencias
 import hangman.model.English;
 import hangman.model.Language;
 import hangman.model.dictionary.EnglishDictionaryDataSource;
@@ -26,11 +23,9 @@ public class HangmanDefaultFactoryMethod extends HangmanFactoryMethod {
     public HangmanPanel createHangmanPanel() {
         return new HangmanStickmanPanel();
     }
-<<<<<<< HEAD
-=======
     
-    public GameScore createGame() {
+    /*public GameScore createGame() {
         return new OriginalScore();
-    }
->>>>>>> inyección de dependencias
+    }*/
+
 }
