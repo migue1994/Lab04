@@ -28,7 +28,7 @@ public class GameScoreTest {
 	public void invalidIncorrectCountOriginal() throws ScoreException {
 		try {
 			totalScore=originalScore.calculateScore(5, -2);
-			Assert.assertTrue("Deberia lanzar la excepcion de valor invalido",1==2);
+			Assert.assertTrue("Deberia lanzar la excepcion de valor invalido",0==2);
 		}
 		catch(ScoreException e) {
 			Assert.assertEquals(e.getMessage(), ScoreException.INVALID_VALUE);
