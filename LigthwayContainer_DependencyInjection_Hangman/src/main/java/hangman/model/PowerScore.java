@@ -9,6 +9,8 @@ public class PowerScore implements GameScore{
 	final int puntajeMaximo=500;
 	final int bono=5;
 	final int penal=8;
+	final int puntajeInicial=0;
+	private int totalScore;
 	/**
 	 * Pre: Se recibe la cantidad de letras correctas e incorrectas.
 	 * Pos: Retorna el puntaje total dependiendo de las penalizaciones y los bonos.
@@ -33,7 +35,16 @@ public class PowerScore implements GameScore{
 		if(puntaje>500) puntaje=500;
 		else if(puntaje<0) puntaje=0;
 		
+		this.totalScore=puntaje;
 		return puntaje;
 	}
 	
+	public int getPuntajeInicial() {
+		return this.puntajeInicial;	
+	}
+	
+	public int getPuntajeFinal() {
+		return this.totalScore;
+		
+	}
 }

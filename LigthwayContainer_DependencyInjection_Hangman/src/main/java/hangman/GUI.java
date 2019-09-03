@@ -97,7 +97,7 @@ public class GUI {
 
         gameoverController = new GameOverController(
                 new GameOverPanel(language),
-                new GameOverModel(language),
+                new GameOverModel(language,this.game),
                 mainFrameController, language
         );
         highScoreController = new HighScoreController(

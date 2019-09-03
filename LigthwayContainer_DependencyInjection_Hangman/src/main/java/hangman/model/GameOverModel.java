@@ -22,22 +22,24 @@ public class GameOverModel {
     private String menuButtonText;
     
     private Language lan;
-    
+    private GameScore game;
     
  
     
-    public GameOverModel(Language lan) {
+    public GameOverModel(Language lan, GameScore game) {
         this.lan=lan;
+        this.game=game;
         this.score = -1;
         newGameButtonText = lan.getAccesButton()[1];
         menuButtonText = lan.getAccesButton()[2];
         GAME_OVER_TEXT = lan.getAccesButton()[0];
+        
     }
     
     //method: getScore
     //purpose: get final game score
     public int getScore(){
-        return score;
+        return game.getPuntajeFinal();
     }
     
     //method: setScore
