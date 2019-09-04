@@ -39,7 +39,7 @@ public class GameOverModel {
     //method: getScore
     //purpose: get final game score
     public int getScore(){
-        return game.getPuntajeFinal();
+    	return score;
     }
     
     //method: setScore

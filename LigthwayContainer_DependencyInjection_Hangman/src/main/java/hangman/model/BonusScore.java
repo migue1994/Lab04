@@ -8,7 +8,6 @@ public class BonusScore implements GameScore{
 	final int penal=5;
 	final int maximo=32767;
 	final int puntajeInicial=0;
-	private int totalScore;
 	/**
 	 * Pre: Se recibe la cantidad de letras correctas e incorrectas.
 	 * Pos: Retorna el puntaje total dependiendo de las penalizaciones y los bonos.
@@ -27,17 +26,12 @@ public class BonusScore implements GameScore{
 		p2=puntaje-penal*incorrectCount;
 		if(p2>=0) puntaje=p2;
 		else puntaje=0;
-		this.totalScore=puntaje;
 		return puntaje;
 	}
 	
 	public int getPuntajeInicial() {
 		return this.puntajeInicial;	
 	}
-	
-	public int getPuntajeFinal() {
-		return this.totalScore;
-		
-	}
+
 	
 }

@@ -12,6 +12,7 @@
 ****************************************************************/ 
 package hangman.model;
 
+import hangman.exception.ScoreException;
 import hangman.model.dictionary.HangmanDictionary;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -33,7 +34,7 @@ public class GameModel {
     private char[] randomWordCharArray;
 	
     private GameScore game;
-    
+    private boolean inicial;
     
    
     public GameModel(HangmanDictionary dictionary, GameScore game){
@@ -45,6 +46,7 @@ public class GameModel {
         incorrectCount = 0;
         correctCount = 0;
         gameScore = game.getPuntajeInicial();
+        this.inicial=true;
         
     }
     
@@ -56,6 +58,7 @@ public class GameModel {
         incorrectCount = 0;
         correctCount = 0;
         gameScore =game.getPuntajeInicial();
+        this.inicial=true;
     }
 
     //setDateTime
@@ -77,12 +80,27 @@ public class GameModel {
         }
         if(positions.size() == 0){
             incorrectCount++;
-            gameScore -= 10;
         } else {
             correctCount += positions.size();
         }
-        return positions;
-        
+        this.inicial=false;
+        try {
+			updateScore();
+		} catch (ScoreException e) {
+			e.printStackTrace();
+		}
+        return positions;        
+    }
+    
+    //Actualiza el puntaje de acuerdo a la cantidad de respuestas correctas e incorrectas.
+    public void updateScore() throws ScoreException {
+    	try{
+    		if(inicial) this.gameScore=game.getPuntajeInicial();
+    		else this.gameScore=game.calculateScore(correctCount, incorrectCount);
+    	}
+    	catch(ScoreException e) {
+    		e.printStackTrace();
+    	}
     }
     
     //getDateTime
@@ -100,7 +118,8 @@ public class GameModel {
     
     //getScore
     //purpose: returns current score value
-    public int getScore() {
+    public int getScore() throws ScoreException {
+    	updateScore();
         return gameScore;
     }
 
@@ -126,7 +145,8 @@ public class GameModel {
 
     //method: getGameScore
     //purpose: return current score
-    public int getGameScore() {
+    public int getGameScore() throws ScoreException {
+    	updateScore();
         return gameScore;
     }
 

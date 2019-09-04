@@ -6,7 +6,6 @@ public class OriginalScore implements GameScore{
 	
 	final int penal=10;
 	final int puntajeInicial=100;
-	private int totalScore;
 	
 	/**
 	 * Pre: Se recibe la cantidad de letras correctas e incorrectas.
@@ -22,7 +21,6 @@ public class OriginalScore implements GameScore{
 		int puntaje=puntajeInicial;
 		puntaje-=penal*incorrectCount;
 		if(puntaje<0) puntaje=0;
-		this.totalScore=puntaje;
 		return puntaje;
 	}
 	
@@ -30,9 +28,6 @@ public class OriginalScore implements GameScore{
 		return this.puntajeInicial;
 	}
 	
-	public int getPuntajeFinal() {
-		return this.totalScore;
-		
-	}
 	
 }
+

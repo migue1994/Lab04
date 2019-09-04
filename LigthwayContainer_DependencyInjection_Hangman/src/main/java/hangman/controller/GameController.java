@@ -24,6 +24,7 @@ import javax.swing.event.AncestorListener;
 
 import hangman.GUI;
 import hangman.SwingProject;
+import hangman.exception.ScoreException;
 import hangman.model.GameModel;
 import hangman.model.Language;
 import hangman.view.GamePanel;
@@ -52,7 +53,11 @@ public class GameController{
     //purpose: set contents of model to be reflected in the view, as well as
     // set button listeners, and activates time label
     private void setup(){
-        panel.getPoints().setText(lan.getPointsNameLabel()+ Integer.toString(model.getGameScore()));
+        try {
+			panel.getPoints().setText(lan.getPointsNameLabel()+ Integer.toString(model.getGameScore()));
+		} catch (ScoreException e1) {
+			e1.printStackTrace();
+		}
         panel.getGameNameLabel().setText(lan.getHangmanLabel());
         panel.addBlanks(model.getWordLength());
         
@@ -70,7 +75,11 @@ public class GameController{
                     panel.getHmPanel().repaint();
                 }
                 
-                panel.getPoints().setText(lan.getPointsNameLabel()+ Integer.toString(model.getGameScore()));
+			     try {
+					panel.getPoints().setText(lan.getPointsNameLabel()+ Integer.toString(model.getGameScore()));
+				} catch (ScoreException e1) {
+					e1.printStackTrace();
+				}
                 int incorrectCount = model.getIncorrectCount();
                 int correctCount = model.getCorrectCount();
                 if(incorrectCount > 5 || correctCount == model.getWordLength()){
@@ -143,7 +152,11 @@ public class GameController{
     //purpose: reset associated view and controller for a new game
     public void resetGame(){
         model.reset();
-        panel.getPoints().setText(lan.getPointsNameLabel()+ Integer.toString(model.getGameScore()));
+        try {
+			panel.getPoints().setText(lan.getPointsNameLabel()+ Integer.toString(model.getGameScore()));
+		} catch (ScoreException e) {
+			e.printStackTrace();
+		}
         panel.addBlanks(model.getWordLength());
         panel.getHmPanel().setIncorrectGuesses(0);
         for(JButton jb : panel.getKeyboardButtonArray()){
