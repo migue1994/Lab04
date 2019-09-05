@@ -15,6 +15,7 @@ public class PowerScore implements GameScore{
 	 * Pos: Retorna el puntaje total dependiendo de las penalizaciones y los bonos.
 	 * @param correctCount: Cantidad de letras correctas.
 	 * @param incorrectCount: Cantidad de letras incorrectas.
+	 * @throws ScoreException Valores negativos o ambos valores son 0
 	 */
 	public int calculateScore(int correctCount, int incorrectCount) throws ScoreException{
 		

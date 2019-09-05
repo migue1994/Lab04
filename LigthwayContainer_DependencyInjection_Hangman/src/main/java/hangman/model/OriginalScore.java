@@ -12,6 +12,7 @@ public class OriginalScore implements GameScore{
 	 * Pos: Retorna el puntaje total dependiendo de las penalizaciones.
 	 * @param correctCount: Cantidad de letras correctas.
 	 * @param incorrectCount: Cantidad de letras incorrectas.
+	 * @throws ScoreException Valores negativos o ambos valores son 0
 	 */
 	public int calculateScore(int correctCount, int incorrectCount) throws ScoreException{
 		if(correctCount<0 || incorrectCount<0 || (correctCount==0 && incorrectCount==0)) {
